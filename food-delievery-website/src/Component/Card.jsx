@@ -11,7 +11,7 @@ function Card({image,name,price,type,id}) {
       </div>
       <div className="text-2xl font-semibold ">{name}</div>
       <div className=" w-full flex justify-between items-center">
-        <div className="text-lg font-bold text-green-500">Rs{price}</div>
+        <div className="text-lg font-bold text-green-500">Rs {price}-/</div>
         <div className="flex justify-center items-center gap-2 text-green-500 font-semibold">
               {type==='veg' ? <LuLeafyGreen/> : <GiChickenOven />}
               <span>{type}</span></div>

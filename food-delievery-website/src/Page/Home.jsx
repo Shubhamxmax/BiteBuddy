@@ -5,9 +5,16 @@ import { categories } from "../categories";
 import Card from "../Component/Card";
 import { food_items } from "../food";
 import { Foodprovider } from "../Context/context";
+import { RxCross2 } from "react-icons/rx";
+import Card2 from "../Component/Card2";
 
 function Home() {
   let [cate, setcategories] = useState(food_items);
+  let [show_cart,set_cart]=useState(false);
+
+  function update_cart(value){
+    set_cart(value);
+  }
 
   function filtering(name) {
     if (name === "All") {
@@ -21,12 +28,12 @@ function Home() {
   }
 
   function show_food(food){
-    const lists=food_items.filter( item => item.food_name.includes(food))
+    const lists=food_items.filter( item => item.food_name.toLowerCase().includes(food.toLowerCase()))
     setcategories(lists)
   }
 
   return (
-    <Foodprovider value={show_food}>
+    <Foodprovider value={{show_food,update_cart}}>
       <div className="bg-slate-200 w-full min-h-screen">
         <Nav />
 
@@ -55,6 +62,13 @@ function Home() {
               id={item.id}
             />
           ))}
+        </div>
+        <div className={`w-full md:w-[40vw] h-[100%] fixed top-0 right-0 bg-white shadow-xl p-6 transition-all duration-500 ${show_cart?"translate-x-0":"translate-x-full"}`}>
+        <header className="w-full flex justify-between items-center">
+          <span className=" text-[18px] text-green-400 font-semibold">Order Items</span>
+          <RxCross2 className="w-[30px] text-[22px] text-green-400 font-semibold cursor-pointer" onClick={()=> update_cart(false)}/>
+        </header>
+      
         </div>
       </div>
     </Foodprovider>
