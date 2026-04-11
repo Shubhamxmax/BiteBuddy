@@ -1,13 +1,17 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { MdFastfood } from "react-icons/md";
 import { IoIosSearch } from "react-icons/io";
 import { FiShoppingBag } from "react-icons/fi";
 import { useContext } from "react";
 import { Foodcontext } from "../Context/context";
+import { useSelector } from "react-redux";
 
 function Nav() {
-   const { show_food,update_cart } = useContext(Foodcontext);
-   const [input, setinput] = useState("");
+  const items = useSelector((state) => state.cart); // this cart is the cart from store
+  console.log(items)
+
+  const { show_food, update_cart } = useContext(Foodcontext);
+  const [input, setinput] = useState("");
 
   useEffect(() => {
     show_food(input);
@@ -40,10 +44,13 @@ function Nav() {
 
       <div className="w-[60px] h-[60px] bg-white flex justify-center items-center rounded-md shadow-xl relative">
         <span className="absolute top-0 right-2 text-green-500 font-bold">
-          0
+          {items.length}
         </span>
-        <FiShoppingBag className="w-[30px] h-[30px] text-green-500 text-[18px] cursor-pointer
-        " onClick={()=>update_cart(true)} />
+        <FiShoppingBag
+          className="w-[30px] h-[30px] text-green-500 text-[18px] cursor-pointer
+        "
+          onClick={() => update_cart(true)}
+        />
       </div>
     </div>
   );
