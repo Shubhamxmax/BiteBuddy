@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 import { LuLeafyGreen } from "react-icons/lu";
 import { GiChickenOven } from "react-icons/gi";
 import { AddItem } from '../Redux/CartSlice';
+import { toast } from "react-toastify";
 
 function Card({image,name,price,type,id}) {
   const dispatch=useDispatch(); // displatches all functions from store (store has all the function that are present in slice)
@@ -18,7 +19,9 @@ function Card({image,name,price,type,id}) {
               <span>{type}</span></div>
       </div>
       <button className="w-full p-3 bg-green-500 rounded-lg text-white cursor-pointer hover:bg-green-400 transition"
-      onClick={()=>dispatch(AddItem({id:id,name:name,price:price,qty:1,image:image}))}>
+      onClick={()=>{dispatch(AddItem({id:id,name:name,price:price,qty:1,image:image}))
+      toast.success("Item Added")}
+      }>
         Add to dish
       </button>
     </div>
