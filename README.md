@@ -39,14 +39,12 @@ This is a **React-based Food Delivery App** where users can browse items, use a 
 
 * React.js
 * Redux
-* CSS (Flexbox & Grid)
+* Tailwind
 
 ---
 
-## 🔗 Project Link
-
 ## 🔗 Project Link  
-👉 [Live Demo](https://shubham-food-delievery.netlify.app)
+👉 [Open Project](https://shubham-food-delievery.netlify.app)
 
 ---
 
