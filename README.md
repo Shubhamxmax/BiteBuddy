@@ -45,7 +45,8 @@ This is a **React-based Food Delivery App** where users can browse items, use a 
 
 ## 🔗 Project Link
 
-👉 Add your project link here: shubham-food-delievery.netlify.app
+## 🔗 Project Link  
+👉 [Live Demo](https://shubham-food-delievery.netlify.app)
 
 ---
 
